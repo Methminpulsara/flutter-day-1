@@ -35,6 +35,26 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class Mywight extends StatelessWidget {
+  const Mywight({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Text("MyWight"));
+  }
+}
+
+
+class MyFirstWidget extends StatelessWidget {
+  const MyFirstWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Text("MyWight",style: TextStyle(color: Colors.deepOrangeAccent),));
+  }
+}
+
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -86,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
-      
+
         body: Container(
           child: Column(
             children: [
@@ -95,102 +115,158 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 80,
                 margin: EdgeInsets.only(top: 5),
                 alignment: Alignment.center,
-                child: Text("Welcome to  Flutter ! ",
-                style: TextStyle(
-                  fontSize: 36.00
-                ),),
-      
+                child: Text(
+                  "Welcome to  Flutter ! ",
+                  style: TextStyle(
+                    fontSize: 40.00,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
               ),
               Container(
-                width: 400,
+                width: 300,
                 height: 50,
-                color: Colors.tealAccent,
+
                 margin: EdgeInsets.only(top: 5),
                 alignment: Alignment.center,
-                child: Text("Hello Flutter ! ",
+
+                decoration: BoxDecoration(
+                  color: Colors.tealAccent,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Text(
+                  "Hello Flutter ! ",
                   style: TextStyle(
-                      fontSize: 36.00
-                  ),),
+                    fontSize: 36.00,
+                    decoration: TextDecoration.overline,
+                  ),
+                ),
               ),
+
               Container(
+
                 margin: EdgeInsets.only(top: 5),
+                width: 350,
                 child: Row(
                   children: [
-      
-                    Expanded(child: Container(
-                      height: 60,
-                      color: Colors.blueGrey,
-                      alignment: Alignment.center,
-                      child: Text("Item 1"),
-                    )),
-                    Expanded(child: Container(
-                      height: 60,
-                      color: Colors.blueAccent,
-                      alignment: Alignment.center,
-                      child: Text("Item 1"),
-      
-                    )),
-                    Expanded(child: Container(
-      
-                      height: 60,
-                      color: Colors.cyan,
-                      alignment: Alignment.center,
-                      child: Text("Item 1", style: TextStyle(
-                      ),),
-                    ))
+                    Expanded(
+                      child: Container(
+                        height: 60,
+                        color: Colors.blueGrey,
+                        alignment: Alignment.center,
+                        child: Text("Item 2", style: TextStyle()),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 60,
+                        color: Colors.blueAccent,
+                        alignment: Alignment.center,
+                        child: Text("Item 1"),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 60,
+                        color: Colors.cyan,
+                        alignment: Alignment.center,
+                        child: Text("Item 3", style: TextStyle()),
+                      ),
+                    ),
                   ],
                 ),
               ),
-      
+              SizedBox(height: 20),
+              MyFirstWidget(),
+
               Container(
-                width: 400,
+                width: 350,
                 height: 50,
+
                 margin: EdgeInsets.only(top: 5),
                 alignment: Alignment.center,
                 color: Colors.black38,
-                child: Text("First ! ",
-                  style: TextStyle(
-                      fontSize: 26.00
-                  ),),
-      
+                child: Text("First ! ", style: TextStyle(fontSize: 26.00)),
               ),
               Container(
-                width: 400,
+                width: 350,
                 height: 50,
-                margin: EdgeInsets.only(top: 5),
+                margin: EdgeInsets.only(top: 25),
                 alignment: Alignment.center,
-                color: Colors.amber,
-                child: Text("Second ! ",
-                  style: TextStyle(
-                      fontSize: 26.00
-                  ),),
-      
+                child: Text("Second ! ", style: TextStyle(fontSize: 26.00)),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  gradient: LinearGradient(
+                    colors: [Colors.blueAccent, Colors.deepPurple],
+                  ),
+                  boxShadow: [
+                    BoxShadow(color: Colors.black38, offset: Offset(4, 3)),
+                  ],
+                ),
               ),
               Container(
-                width: 400,
+                width: 350,
                 height: 80,
-                margin: EdgeInsets.only(top: 5),
+                margin: EdgeInsets.only(top: 35),
                 alignment: Alignment.center,
-                color: Colors.blueGrey,
-                child: Text("Third ! ",
-                  style: TextStyle(
-                      fontSize: 26.00
-                  ),),
-      
+                decoration: BoxDecoration(
+                  color: Colors.white60,
+                  border: Border.all(color: Colors.white10),
+                  borderRadius: BorderRadius.circular(25),
+                  gradient: LinearGradient(
+                    colors: [Colors.blueAccent, Colors.yellow, Colors.blue],
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                  ),
+                ),
+
+                child: Text(
+                  "Without blur ! ",
+                  style: TextStyle(fontSize: 26.00),
+                ),
               ),
-      
+
+              SizedBox(height: 20),
+              MyFirstWidget(),
+
+
+              Container(
+                width: 350,
+                height: 80,
+                margin: EdgeInsets.only(top: 35),
+                alignment: Alignment.center,
+
+                child: Text(
+                  "Blur border ! ",
+                  style: TextStyle(fontSize: 26.00),
+
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.white10),
+                  borderRadius: BorderRadius.circular(25),
+
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      offset: Offset(0, 4),
+                      blurRadius: 5,
+                    ),
+                  ],
+                ),
+              ),
+
               Spacer(),
-      
+
               Container(
                 height: 80,
                 margin: EdgeInsets.only(top: 5),
                 alignment: Alignment.center,
                 color: Colors.blueGrey,
-                child: Text("Footer ! ",
-                  style: TextStyle(
-                      fontSize: 26.00
-                  ),),
-      
+                child: Text("Footer ! ", style: TextStyle(fontSize: 26.00)),
               ),
             ],
           ),
