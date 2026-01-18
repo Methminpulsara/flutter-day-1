@@ -75,130 +75,131 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              width: 400,
-              height: 80,
-              margin: EdgeInsets.only(top: 5),
-              alignment: Alignment.center,
-              child: Text("Welcome to  Flutter ! ",
-              style: TextStyle(
-                fontSize: 36.00
-              ),),
-
-            ),
-            Container(
-              width: 400,
-              height: 50,
-              color: Colors.tealAccent,
-              margin: EdgeInsets.only(top: 5),
-              alignment: Alignment.center,
-              child: Text("Hello Flutter ! ",
-                style: TextStyle(
-                    fontSize: 36.00
-                ),),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 5),
-              child: Row(
-                children: [
-
-                  Expanded(child: Container(
-                    height: 60,
-                    color: Colors.blueGrey,
-                    alignment: Alignment.center,
-                    child: Text("Item 1"),
-                  )),
-                  Expanded(child: Container(
-                    height: 60,
-                    color: Colors.blueAccent,
-                    alignment: Alignment.center,
-                    child: Text("Item 1"),
-
-                  )),
-                  Expanded(child: Container(
-
-                    height: 60,
-                    color: Colors.cyan,
-                    alignment: Alignment.center,
-                    child: Text("Item 1", style: TextStyle(
-                    ),),
-                  ))
-                ],
-              ),
-            ),
-
-            Container(
-              width: 400,
-              height: 50,
-              margin: EdgeInsets.only(top: 5),
-              alignment: Alignment.center,
-              color: Colors.black38,
-              child: Text("First ! ",
-                style: TextStyle(
-                    fontSize: 26.00
-                ),),
-
-            ),
-            Container(
-              width: 400,
-              height: 50,
-              margin: EdgeInsets.only(top: 5),
-              alignment: Alignment.center,
-              color: Colors.amber,
-              child: Text("Second ! ",
-                style: TextStyle(
-                    fontSize: 26.00
-                ),),
-
-            ),
-            Container(
-              width: 400,
-              height: 80,
-              margin: EdgeInsets.only(top: 5),
-              alignment: Alignment.center,
-              color: Colors.blueGrey,
-              child: Text("Third ! ",
-                style: TextStyle(
-                    fontSize: 26.00
-                ),),
-
-            ),
-
-            Spacer(),
-
-            Container(
-              height: 80,
-              margin: EdgeInsets.only(top: 5),
-              alignment: Alignment.center,
-              color: Colors.blueGrey,
-              child: Text("Footer ! ",
-                style: TextStyle(
-                    fontSize: 26.00
-                ),),
-
-            ),
-
-
-          ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          // TRY THIS: Try changing the color here to a specific color (to
+          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+          // change color while the other colors stay the same.
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(widget.title),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      
+        body: Container(
+          child: Column(
+            children: [
+              Container(
+                width: 400,
+                height: 80,
+                margin: EdgeInsets.only(top: 5),
+                alignment: Alignment.center,
+                child: Text("Welcome to  Flutter ! ",
+                style: TextStyle(
+                  fontSize: 36.00
+                ),),
+      
+              ),
+              Container(
+                width: 400,
+                height: 50,
+                color: Colors.tealAccent,
+                margin: EdgeInsets.only(top: 5),
+                alignment: Alignment.center,
+                child: Text("Hello Flutter ! ",
+                  style: TextStyle(
+                      fontSize: 36.00
+                  ),),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 5),
+                child: Row(
+                  children: [
+      
+                    Expanded(child: Container(
+                      height: 60,
+                      color: Colors.blueGrey,
+                      alignment: Alignment.center,
+                      child: Text("Item 1"),
+                    )),
+                    Expanded(child: Container(
+                      height: 60,
+                      color: Colors.blueAccent,
+                      alignment: Alignment.center,
+                      child: Text("Item 1"),
+      
+                    )),
+                    Expanded(child: Container(
+      
+                      height: 60,
+                      color: Colors.cyan,
+                      alignment: Alignment.center,
+                      child: Text("Item 1", style: TextStyle(
+                      ),),
+                    ))
+                  ],
+                ),
+              ),
+      
+              Container(
+                width: 400,
+                height: 50,
+                margin: EdgeInsets.only(top: 5),
+                alignment: Alignment.center,
+                color: Colors.black38,
+                child: Text("First ! ",
+                  style: TextStyle(
+                      fontSize: 26.00
+                  ),),
+      
+              ),
+              Container(
+                width: 400,
+                height: 50,
+                margin: EdgeInsets.only(top: 5),
+                alignment: Alignment.center,
+                color: Colors.amber,
+                child: Text("Second ! ",
+                  style: TextStyle(
+                      fontSize: 26.00
+                  ),),
+      
+              ),
+              Container(
+                width: 400,
+                height: 80,
+                margin: EdgeInsets.only(top: 5),
+                alignment: Alignment.center,
+                color: Colors.blueGrey,
+                child: Text("Third ! ",
+                  style: TextStyle(
+                      fontSize: 26.00
+                  ),),
+      
+              ),
+      
+              Spacer(),
+      
+              Container(
+                height: 80,
+                margin: EdgeInsets.only(top: 5),
+                alignment: Alignment.center,
+                color: Colors.blueGrey,
+                child: Text("Footer ! ",
+                  style: TextStyle(
+                      fontSize: 26.00
+                  ),),
+      
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
