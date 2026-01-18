@@ -74,18 +74,39 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _counter = 10;
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _counter=25;
+  }
+
+  @override
+  void didUpdateWidget(covariant MyHomePage oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+    _counter = 30;
+  }
 
   void _incrementCounter() {
+    print('increment_click');
+    _counter++;
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
+    // setState(() {
+    //   // This call to setState tells the Flutter framework that something has
+    //   // changed in this State, which causes it to rerun the build method below
+    //   // so that the display can reflect the updated values. If we changed
+    //   // _counter without calling setState(), then the build method would not be
+    //   // called again, and so nothing would appear to happen.
+    //   _counter++;
+    // });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -146,6 +167,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
+
+              SizedBox(height: 20,),
+              Container(
+                child: Center(
+                  child: Text("Incrementer $_counter"),
+                ),
+              ),
+
               Container(
 
                 margin: EdgeInsets.only(top: 5),
@@ -179,7 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               MyFirstWidget(),
 
               Container(
@@ -229,9 +258,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
-              SizedBox(height: 20),
-              MyFirstWidget(),
-
 
               Container(
                 width: 350,
@@ -268,6 +294,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.blueGrey,
                 child: Text("Footer ! ", style: TextStyle(fontSize: 26.00)),
               ),
+
+
             ],
           ),
         ),
