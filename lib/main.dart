@@ -110,6 +110,86 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 36.00
                 ),),
             ),
+            Container(
+              margin: EdgeInsets.only(top: 5),
+              child: Row(
+                children: [
+
+                  Expanded(child: Container(
+                    height: 60,
+                    color: Colors.blueGrey,
+                    alignment: Alignment.center,
+                    child: Text("Item 1"),
+                  )),
+                  Expanded(child: Container(
+                    height: 60,
+                    color: Colors.blueAccent,
+                    alignment: Alignment.center,
+                    child: Text("Item 1"),
+
+                  )),
+                  Expanded(child: Container(
+
+                    height: 60,
+                    color: Colors.cyan,
+                    alignment: Alignment.center,
+                    child: Text("Item 1", style: TextStyle(
+                    ),),
+                  ))
+                ],
+              ),
+            ),
+
+            Container(
+              width: 400,
+              height: 50,
+              margin: EdgeInsets.only(top: 5),
+              alignment: Alignment.center,
+              color: Colors.black38,
+              child: Text("First ! ",
+                style: TextStyle(
+                    fontSize: 26.00
+                ),),
+
+            ),
+            Container(
+              width: 400,
+              height: 50,
+              margin: EdgeInsets.only(top: 5),
+              alignment: Alignment.center,
+              color: Colors.amber,
+              child: Text("Second ! ",
+                style: TextStyle(
+                    fontSize: 26.00
+                ),),
+
+            ),
+            Container(
+              width: 400,
+              height: 80,
+              margin: EdgeInsets.only(top: 5),
+              alignment: Alignment.center,
+              color: Colors.blueGrey,
+              child: Text("Third ! ",
+                style: TextStyle(
+                    fontSize: 26.00
+                ),),
+
+            ),
+
+            Spacer(),
+
+            Container(
+              height: 80,
+              margin: EdgeInsets.only(top: 5),
+              alignment: Alignment.center,
+              color: Colors.blueGrey,
+              child: Text("Footer ! ",
+                style: TextStyle(
+                    fontSize: 26.00
+                ),),
+
+            ),
 
 
           ],
