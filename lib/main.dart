@@ -211,53 +211,69 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 10),
               MyFirstWidget(),
 
-              Container(
-                width: 350,
-                height: 50,
-
-                margin: EdgeInsets.only(top: 5),
-                alignment: Alignment.center,
-                color: Colors.black38,
-                child: Text("First ! ", style: TextStyle(fontSize: 26.00)),
-              ),
-              Container(
-                width: 350,
-                height: 50,
-                margin: EdgeInsets.only(top: 25),
-                alignment: Alignment.center,
-                child: Text("Second ! ", style: TextStyle(fontSize: 26.00)),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  gradient: LinearGradient(
-                    colors: [Colors.blueAccent, Colors.deepPurple],
+              ElevatedButton(
+                onPressed:(){
+                    print("bla bla ");
+                  },
+                child:  const Text("ElevatedButton"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  fixedSize: const Size(200, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  boxShadow: [
-                    BoxShadow(color: Colors.black38, offset: Offset(4, 3)),
-                  ],
-                ),
               ),
-              Container(
-                width: 350,
-                height: 80,
-                margin: EdgeInsets.only(top: 35),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.white60,
-                  border: Border.all(color: Colors.white10),
-                  borderRadius: BorderRadius.circular(25),
-                  gradient: LinearGradient(
-                    colors: [Colors.blueAccent, Colors.yellow, Colors.blue],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
-                ),
-
-                child: Text(
-                  "Without blur ! ",
-                  style: TextStyle(fontSize: 26.00),
-                ),
               ),
 
+
+              // Container(
+              //   width: 350,
+              //   height: 50,
+              //
+              //   margin: EdgeInsets.only(top: 5),
+              //   alignment: Alignment.center,
+              //   color: Colors.black38,
+              //   child: Text("First ! ", style: TextStyle(fontSize: 26.00)),
+              // ),
+              // Container(
+              //   width: 350,
+              //   height: 50,
+              //   margin: EdgeInsets.only(top: 25),
+              //   alignment: Alignment.center,
+              //   child: Text("Second ! ", style: TextStyle(fontSize: 26.00)),
+              //   decoration: BoxDecoration(
+              //     color: Colors.red,
+              //     gradient: LinearGradient(
+              //       colors: [Colors.blueAccent, Colors.deepPurple],
+              //     ),
+              //     boxShadow: [
+              //       BoxShadow(color: Colors.black38, offset: Offset(4, 3)),
+              //     ],
+              //   ),
+              // ),
+              // Container(
+              //   width: 350,
+              //   height: 80,
+              //   margin: EdgeInsets.only(top: 35),
+              //   alignment: Alignment.center,
+              //   decoration: BoxDecoration(
+              //     color: Colors.white60,
+              //     border: Border.all(color: Colors.white10),
+              //     borderRadius: BorderRadius.circular(25),
+              //     gradient: LinearGradient(
+              //       colors: [Colors.blueAccent, Colors.yellow, Colors.blue],
+              //       begin: Alignment.bottomCenter,
+              //       end: Alignment.topCenter,
+              //     ),
+              //   ),
+              //
+              //   child: Text(
+              //     "Without blur ! ",
+              //     style: TextStyle(fontSize: 26.00),
+              //   ),
+              // ),
+              //
 
               Container(
                 width: 350,
