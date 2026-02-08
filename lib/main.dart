@@ -212,9 +212,11 @@ class _MyHomePageState extends State<MyHomePage> {
               MyFirstWidget(),
 
               ElevatedButton(
-                onPressed:(){
-                    print("bla bla ");
-                  },
+                onPressed:()=>{
+                  setState(() {
+                    _counter++;
+                  })
+                },
                 child:  const Text("ElevatedButton"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
@@ -274,32 +276,32 @@ class _MyHomePageState extends State<MyHomePage> {
               //   ),
               // ),
               //
-
-              Container(
-                width: 350,
-                height: 80,
-                margin: EdgeInsets.only(top: 35),
-                alignment: Alignment.center,
-
-                child: Text(
-                  "Blur border ! ",
-                  style: TextStyle(fontSize: 26.00),
-
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.white10),
-                  borderRadius: BorderRadius.circular(25),
-
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      offset: Offset(0, 4),
-                      blurRadius: 5,
-                    ),
-                  ],
-                ),
-              ),
+              //
+              // Container(
+              //   width: 350,
+              //   height: 80,
+              //   margin: EdgeInsets.only(top: 35),
+              //   alignment: Alignment.center,
+              //
+              //   child: Text(
+              //     "Blur border ! ",
+              //     style: TextStyle(fontSize: 26.00),
+              //
+              //   ),
+              //   decoration: BoxDecoration(
+              //     color: Colors.white,
+              //     border: Border.all(color: Colors.white10),
+              //     borderRadius: BorderRadius.circular(25),
+              //
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.black38,
+              //         offset: Offset(0, 4),
+              //         blurRadius: 5,
+              //       ),
+              //     ],
+              //   ),
+              // ),
 
               Spacer(),
 
