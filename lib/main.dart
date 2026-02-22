@@ -7,66 +7,68 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
+final VoidCallback onTap;
 
 class Mywight extends StatelessWidget {
   const Mywight({super.key});
 
+
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text("MyWight"));
+    return Container(child: const Text("MyWight"));
   }
 }
 
 
+class MyButton extends StatelessWidget {
+  final VoidCallback onTap;
+
+  const MyButton({super.key, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      onDoubleTap: () {
+        print("On Double tap");
+      },
+      onLongPress: () {
+        print("On Long press");
+      },
+      child: Container(
+        width: 180,
+        height: 50,
+        color: Colors.pink,
+        child: const Center(
+          child: Text("MY button"),
+        ),
+      ),
+    );
+  }
+}
 class MyFirstWidget extends StatelessWidget {
   const MyFirstWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text("MyWight",style: TextStyle(color: Colors.deepOrangeAccent),));
+    return Container(child: const Text("MyWight", style: TextStyle(color: Colors.deepOrangeAccent)));
   }
 }
 
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -75,68 +77,58 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 10;
-
+  String _output = '';
+  Color _counterColor = Colors.pink;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _counter=25;
+    _counter = 25;
+    _is_oddOREvenn();
   }
 
   @override
   void didUpdateWidget(covariant MyHomePage oldWidget) {
-    // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
     _counter = 30;
   }
 
   void _incrementCounter() {
-    print('increment_click');
-    _counter++;
     setState(() {
       _counter++;
     });
-    // setState(() {
-    //   // This call to setState tells the Flutter framework that something has
-    //   // changed in this State, which causes it to rerun the build method below
-    //   // so that the display can reflect the updated values. If we changed
-    //   // _counter without calling setState(), then the build method would not be
-    //   // called again, and so nothing would appear to happen.
-    //   _counter++;
-    // });
+
+    _is_oddOREvenn();
   }
 
+  void _is_oddOREvenn() {
+      if (_counter % 2 == 0) {
+        _output = "Even number";
+        _counterColor = Colors.red;
+      } else {
+        _output = "Odd number";
+        _counterColor = Colors.deepOrangeAccent;
+      }
+    print(_output);
+  }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          // TRY THIS: Try changing the color here to a specific color (to
-          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-          // change color while the other colors stay the same.
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
-
         body: Container(
           child: Column(
             children: [
               Container(
                 width: 400,
                 height: 80,
-                margin: EdgeInsets.only(top: 5),
+                margin: const EdgeInsets.only(top: 5),
                 alignment: Alignment.center,
-                child: Text(
+                child: const Text(
                   "Welcome to  Flutter ! ",
                   style: TextStyle(
                     fontSize: 40.00,
@@ -150,15 +142,13 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 width: 300,
                 height: 50,
-
-                margin: EdgeInsets.only(top: 5),
+                margin: const EdgeInsets.only(top: 5),
                 alignment: Alignment.center,
-
                 decoration: BoxDecoration(
                   color: Colors.tealAccent,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Text(
+                child: const Text(
                   "Hello Flutter ! ",
                   style: TextStyle(
                     fontSize: 36.00,
@@ -166,18 +156,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-
-
-              SizedBox(height: 20,),
+              const SizedBox(height: 20),
               Container(
                 child: Center(
                   child: Text("Incrementer $_counter"),
                 ),
               ),
-
               Container(
-
-                margin: EdgeInsets.only(top: 5),
+                margin: const EdgeInsets.only(top: 5),
                 width: 350,
                 child: Row(
                   children: [
@@ -186,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 60,
                         color: Colors.blueGrey,
                         alignment: Alignment.center,
-                        child: Text("Item 2", style: TextStyle()),
+                        child: const Text("Item 2"),
                       ),
                     ),
                     Expanded(
@@ -194,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 60,
                         color: Colors.blueAccent,
                         alignment: Alignment.center,
-                        child: Text("Item 1"),
+                        child: const Text("Item 1"),
                       ),
                     ),
                     Expanded(
@@ -202,23 +188,26 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 60,
                         color: Colors.cyan,
                         alignment: Alignment.center,
-                        child: Text("Item 3", style: TextStyle()),
+                        child: const Text("Item 3"),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10),
-              MyFirstWidget(),
+              const SizedBox(height: 10),
+              const MyFirstWidget(),
+
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: Text('This number is $_output',
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              ),
 
               ElevatedButton(
-                onPressed:()=>{
-                  setState(() {
-                    _counter++;
-                  })
+                onPressed: () {
+                  _incrementCounter();
                 },
 
-                child:  const Text("ElevatedButton"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
@@ -226,95 +215,71 @@ class _MyHomePageState extends State<MyHomePage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
+                ),
+                child: const Text("ElevatedButton"),
               ),
+
+              SizedBox(height: 10),
+
+              TextButton(onPressed: () {
+                _incrementCounter();
+              },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  fixedSize: const Size(200, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Text("ElevatedButton"),
               ),
 
-
-              // Container(
-              //   width: 350,
-              //   height: 50,
-              //
-              //   margin: EdgeInsets.only(top: 5),
-              //   alignment: Alignment.center,
-              //   color: Colors.black38,
-              //   child: Text("First ! ", style: TextStyle(fontSize: 26.00)),
-              // ),
-              // Container(
-              //   width: 350,
-              //   height: 50,
-              //   margin: EdgeInsets.only(top: 25),
-              //   alignment: Alignment.center,
-              //   child: Text("Second ! ", style: TextStyle(fontSize: 26.00)),
-              //   decoration: BoxDecoration(
-              //     color: Colors.red,
-              //     gradient: LinearGradient(
-              //       colors: [Colors.blueAccent, Colors.deepPurple],
-              //     ),
-              //     boxShadow: [
-              //       BoxShadow(color: Colors.black38, offset: Offset(4, 3)),
-              //     ],
-              //   ),
-              // ),
-              // Container(
-              //   width: 350,
-              //   height: 80,
-              //   margin: EdgeInsets.only(top: 35),
-              //   alignment: Alignment.center,
-              //   decoration: BoxDecoration(
-              //     color: Colors.white60,
-              //     border: Border.all(color: Colors.white10),
-              //     borderRadius: BorderRadius.circular(25),
-              //     gradient: LinearGradient(
-              //       colors: [Colors.blueAccent, Colors.yellow, Colors.blue],
-              //       begin: Alignment.bottomCenter,
-              //       end: Alignment.topCenter,
-              //     ),
-              //   ),
-              //
-              //   child: Text(
-              //     "Without blur ! ",
-              //     style: TextStyle(fontSize: 26.00),
-              //   ),
-              // ),
-              //
-              //
-              // Container(
-              //   width: 350,
-              //   height: 80,
-              //   margin: EdgeInsets.only(top: 35),
-              //   alignment: Alignment.center,
-              //
-              //   child: Text(
-              //     "Blur border ! ",
-              //     style: TextStyle(fontSize: 26.00),
-              //
-              //   ),
-              //   decoration: BoxDecoration(
-              //     color: Colors.white,
-              //     border: Border.all(color: Colors.white10),
-              //     borderRadius: BorderRadius.circular(25),
-              //
-              //     boxShadow: [
-              //       BoxShadow(
-              //         color: Colors.black38,
-              //         offset: Offset(0, 4),
-              //         blurRadius: 5,
-              //       ),
-              //     ],
-              //   ),
+              OutlinedButton(
+                  onPressed: _incrementCounter, 
+                  child: Text("Outline button")
+              ),
+              
+              // IconButton(
+              //     onPressed: _incrementCounter,
+              //     icon: Icon(
+              //       Icons.two_k_sharp,
+              //       color: Colors.indigo,
+              //     )
               // ),
 
-              Spacer(),
+              IconButton(
+                  onPressed: _incrementCounter,
+                  icon: Icon(
+                    Icons.favorite,
+                    color: _counterColor,
+                  )
+              ),
+              
+              
+              MyButton(onTap: _incrementCounter),
+              
+              
+              
+              
+              
+              /*
+              Container(
+                width: 350,
+                height: 50,
+                ...
+              ),
+              */
+
+              const Spacer(),
 
               Container(
                 height: 80,
-                margin: EdgeInsets.only(top: 5),
+                margin: const EdgeInsets.only(top: 5),
                 alignment: Alignment.center,
                 color: Colors.blueGrey,
-                child: Text("Footer ! ", style: TextStyle(fontSize: 26.00)),
+                child: const Text("Footer ! ", style: TextStyle(fontSize: 26.00)),
               ),
-
-
             ],
           ),
         ),
